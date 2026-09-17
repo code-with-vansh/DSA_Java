@@ -31,6 +31,17 @@ public class patterns1 {
         }
     }
 
+    public static void half_Pyramid_Character_Pattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            char ch = 'A';
+            for (int j = 1; j <= i; j++) {
+                System.out.printf("%c ", ch);
+                ch++;
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         while (true) {
@@ -39,6 +50,7 @@ public class patterns1 {
             System.out.println("Enter 1 : Half Pyramid Star Pattern");
             System.out.println("Enter 2 : Inverted Half Pyramid Star Pattern");
             System.out.println("Enter 3 : Half Pyramid Number Pattern");
+            System.out.println("Enter 4 : Half Pyramid Character Pattern");
             System.out.println("Enter 0 : EXIT");
 
             System.out.print("Enter your choise : ");
@@ -56,6 +68,9 @@ public class patterns1 {
                     break;
                 case 3:
                     half_Pyramid_Number_Pattern(n);
+                    break;
+                case 4:
+                    half_Pyramid_Character_Pattern(n);
                     break;
                 case 0:
                     System.exit(0);
