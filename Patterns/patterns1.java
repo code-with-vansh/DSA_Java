@@ -53,6 +53,19 @@ public class patterns1 {
         }
     }
 
+    public static void hollow_Square_Pattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == 1 || i == n || j == 1 || j == n) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         while (true) {
@@ -63,6 +76,7 @@ public class patterns1 {
             System.out.println("Enter 3 : Half Pyramid Number Pattern");
             System.out.println("Enter 4 : Half Pyramid Character Pattern");
             System.out.println("Enter 5 : Half Pyramid Continuous Character Pattern");
+            System.out.println("Enter 6 : Hollow Square Pattern");
             System.out.println("Enter 0 : EXIT");
 
             System.out.print("Enter your choise : ");
@@ -86,6 +100,9 @@ public class patterns1 {
                     break;
                 case 5:
                     half_Pyramid_Continuous_Character_Pattern(n);
+                    break;
+                case 6:
+                    hollow_Square_Pattern(n);
                     break;
                 case 0:
                     System.exit(0);
