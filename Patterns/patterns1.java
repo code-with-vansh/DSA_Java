@@ -66,14 +66,6 @@ public class patterns1 {
         }
     }
 
-    public static void pattern(int n) {
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
-
-            }
-        }
-    }
-
     public static void rotated_Half_Pyramid_Star_Pattern(int n) {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n - i; j++) {
@@ -81,6 +73,15 @@ public class patterns1 {
             }
             for (int k = 1; k <= i; k++) {
                 System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void inverted_Half_Pyramid_Number_Pattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n-i+1; j++) {
+                System.out.printf("%d ", j);
             }
             System.out.println();
         }
@@ -98,6 +99,7 @@ public class patterns1 {
             System.out.println("Enter 5 : Half Pyramid Continuous Character Pattern");
             System.out.println("Enter 6 : Hollow Square Pattern");
             System.out.println("Enter 7 : Rotated Half Pyramid Star Pattern");
+            System.out.println("Enter 8 : Inverted Half Pyramid Number Pattern");
             System.out.println("Enter 0 : EXIT");
 
             System.out.print("Enter your choise : ");
@@ -127,6 +129,9 @@ public class patterns1 {
                     break;
                 case 7:
                     rotated_Half_Pyramid_Star_Pattern(n);
+                    break;
+                case 8:
+                    inverted_Half_Pyramid_Number_Pattern(n);
                     break;
                 case 0:
                     System.exit(0);
