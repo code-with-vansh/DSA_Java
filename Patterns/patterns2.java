@@ -57,6 +57,18 @@ public class patterns2 {
         }
     }
 
+    public static void solid_rhombus_pattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print("  ");
+            }
+            for (int k = 1; k <= n; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         while (true) {
@@ -65,6 +77,7 @@ public class patterns2 {
             System.out.println("Enter 1 : Floyds Triangle Pattern");
             System.out.println("Enter 2 : 0-1 Triangle Pattern");
             System.out.println("Enter 3 : Butterfly Pattern");
+            System.out.println("Enter 4 : Solid Rhombus Pattern");
             System.out.println("Enter 0 : EXIT");
 
             System.out.print("Enter your choise : ");
@@ -82,6 +95,9 @@ public class patterns2 {
                     break;
                 case 3:
                     butterfly_pattern(n);
+                    break;
+                case 4:
+                    solid_rhombus_pattern(n);
                     break;
                 case 0:
                     System.exit(0);
