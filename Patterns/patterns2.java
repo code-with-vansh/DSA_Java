@@ -106,6 +106,35 @@ public class patterns2 {
         }
     }
 
+    public static void hollow_diamond_pattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print("  ");
+            }
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                if (k == 1 || k == 2 * i - 1) {
+                    System.out.print("* ");
+                    continue;
+                }
+                System.out.print("  ");
+            }
+            System.out.println();
+        }
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print("  ");
+            }
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                if (k == 1 || k == 2 * i - 1) {
+                    System.out.print("* ");
+                    continue;
+                }
+                System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         while (true) {
@@ -117,6 +146,7 @@ public class patterns2 {
             System.out.println("Enter 4 : Solid Rhombus Pattern");
             System.out.println("Enter 5 : Hollow Rhombus Pattern");
             System.out.println("Enter 6 : Diamond Pattern");
+            System.out.println("Enter 7 : Hollow Diamond Pattern");
             System.out.println("Enter 0 : EXIT");
 
             System.out.print("Enter your choise : ");
@@ -143,6 +173,9 @@ public class patterns2 {
                     break;
                 case 6:
                     diamond_pattern(n);
+                    break;
+                case 7:
+                    hollow_diamond_pattern(n);
                     break;
                 case 0:
                     System.exit(0);
