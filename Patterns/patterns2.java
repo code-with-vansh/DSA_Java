@@ -28,6 +28,35 @@ public class patterns2 {
         }
     }
 
+    public static void butterfly_pattern(int n) {
+        // for upper half
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            for (int k = 1; k <= 2 * (n - i); k++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        // for lower half
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            for (int k = 1; k <= 2 * (n - i); k++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         while (true) {
@@ -35,6 +64,7 @@ public class patterns2 {
             System.out.println("WELCOME IN PATTERNS WORLD");
             System.out.println("Enter 1 : Floyds Triangle Pattern");
             System.out.println("Enter 2 : 0-1 Triangle Pattern");
+            System.out.println("Enter 3 : Butterfly Pattern");
             System.out.println("Enter 0 : EXIT");
 
             System.out.print("Enter your choise : ");
@@ -49,6 +79,9 @@ public class patterns2 {
                     break;
                 case 2:
                     triangle_0_1_pattern(n);
+                    break;
+                case 3:
+                    butterfly_pattern(n);
                     break;
                 case 0:
                     System.exit(0);
