@@ -12,11 +12,17 @@ public class factorialCalculator {
         return f;
     }
 
+    public static double binomial(int n, int r) {
+        double binomial = factorial(n) / (factorial(r) * factorial(n - r));
+        return binomial;
+    }
+
     public static void main(String[] args) {
 
         while (true) {
 
             System.out.println("Enter 1 : Factorial Calculator");
+            System.out.println("Enter 2 : Binomial Coefficient Calculator");
             System.out.println("Enter 0 : EXIT");
 
             System.out.print("Enter your choise : ");
@@ -30,7 +36,13 @@ public class factorialCalculator {
                     int num = sc.nextInt();
                     System.out.printf("Factorial of %d is %.2f", num, factorial(num));
                     break;
-
+                case 2:
+                    System.out.println("Binomial Coefficient Calculator");
+                    System.out.print("Enter the value of n and r for nCr : ");
+                    int n = sc.nextInt();
+                    int r = sc.nextInt();
+                    System.out.printf("Binomial of %dC%d is %.2f", n, r, binomial(n, r));
+                    break;
                 case 0:
                     System.exit(0);
                 default:
@@ -42,4 +54,3 @@ public class factorialCalculator {
 
     }
 }
-
