@@ -27,6 +27,30 @@ public class searching {
         System.out.println();
     }
 
+    // ! Min Max Finder Function
+    public static void minMaxFinder(int arr[]) {
+        int min = arr[0], min2 = arr[0];
+        int max = arr[0], max2 = arr[0];
+        // * Find min and max value element
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min2 = min;
+                min = arr[i];
+            }
+            if (arr[i] > max) {
+                max2 = max;
+                max = arr[i];
+            }
+        }
+
+        // * Display min and max value element
+        System.out.println("First  Min Value : " + min);
+        System.out.println("Second Min Value : " + min2);
+
+        System.out.println("First  Max Value : " + max);
+        System.out.println("Second Max Value : " + max2);
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -51,6 +75,7 @@ public class searching {
             }
             System.err.println();
             System.out.println("Enter 1 : Linear Search");
+            System.out.println("Enter 2 : Min Max Found");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -59,6 +84,9 @@ public class searching {
             switch (choise) {
                 case 1:
                     linearSearch(arr);
+                    break;
+                case 2:
+                    minMaxFinder(arr);
                     break;
                 case 0:
                     System.exit(0);
