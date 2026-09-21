@@ -51,6 +51,26 @@ public class searching {
         System.out.println("Second Max Value : " + max2);
     }
 
+    // ! Reverse Array Function
+    public static void reverseArray(int arr[]) {
+        System.out.print("    Array : ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + "  ");
+        }
+        // * Reverse Array Logic
+        int n = arr.length;
+        for (int i = 0; i < arr.length / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
+        }
+        System.out.print("\nNow Array : ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("%d  ", arr[i]);
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -76,6 +96,7 @@ public class searching {
             System.err.println();
             System.out.println("Enter 1 : Linear Search");
             System.out.println("Enter 2 : Min Max Found");
+            System.out.println("Enter 3 : Reverse Array");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -87,6 +108,9 @@ public class searching {
                     break;
                 case 2:
                     minMaxFinder(arr);
+                    break;
+                case 3:
+                    reverseArray(arr);
                     break;
                 case 0:
                     System.exit(0);
