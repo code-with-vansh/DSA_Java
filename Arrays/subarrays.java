@@ -51,6 +51,24 @@ public class subarrays {
         System.out.println();
     }
 
+    // ! Print Max Sum using Blute Force
+    public static void maxSumBluteForce(int arr[]) {
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int sum = 0;
+                for (int k = i; k <= j; k++) {
+                    sum = sum + arr[k];
+                }
+                if (sum > maxSum) {
+                    maxSum = sum;
+                }
+            }
+        }
+        System.out.printf("Max Sum (Blute Force) = %d", maxSum);
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -76,6 +94,7 @@ public class subarrays {
             System.err.println();
             System.out.println("Enter 1 : Print all Subarrays");
             System.out.println("Enter 2 : Print Subarray give Max Sum");
+            System.out.println("Enter 3 : Max Sum using Blute Force");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -87,6 +106,9 @@ public class subarrays {
                     break;
                 case 2:
                     maxSumSubarray(arr);
+                    break;
+                case 3:
+                    maxSumBluteForce(arr);
                     break;
                 case 0:
                     System.exit(0);
