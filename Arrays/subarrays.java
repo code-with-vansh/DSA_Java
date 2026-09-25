@@ -69,6 +69,32 @@ public class subarrays {
         System.out.println();
     }
 
+    // ! Print Max Sum using Prefix Sum
+    public static void maxSumPrefix(int arr[]) {
+        int n = arr.length;
+        int prefix[] = new int[n];
+        prefix[0] = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            prefix[i] = prefix[i - 1] + arr[i];
+        }
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int sum = 0;
+                if (i == 0) {
+                    sum = prefix[j];
+                } else {
+                    sum = prefix[j] - prefix[i - 1];
+                }
+                if (sum > maxSum) {
+                    maxSum = sum;
+                }
+            }
+        }
+        System.out.printf("Max Sum (Prefix Array) = %d", maxSum);
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -95,6 +121,7 @@ public class subarrays {
             System.out.println("Enter 1 : Print all Subarrays");
             System.out.println("Enter 2 : Print Subarray give Max Sum");
             System.out.println("Enter 3 : Max Sum using Blute Force");
+            System.out.println("Enter 4 : Max Sum using Prefix Sum");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -109,6 +136,9 @@ public class subarrays {
                     break;
                 case 3:
                     maxSumBluteForce(arr);
+                    break;
+                case 4:
+                    maxSumPrefix(arr);
                     break;
                 case 0:
                     System.exit(0);
