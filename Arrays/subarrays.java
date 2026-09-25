@@ -19,6 +19,38 @@ public class subarrays {
         }
     }
 
+    // ! Print the Subarray having Max Sum
+    public static void maxSumSubarray(int arr[]) {
+        int n = arr.length;
+        int maxArr[] = new int[n];
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int sum = 0;
+                int test[] = new int[n];
+
+                for (int k = i; k <= j; k++) {
+                    test[j - k] = arr[k];
+                    sum = sum + arr[k];
+                }
+                if (sum > maxSum) {
+                    maxSum = sum;
+                    System.arraycopy(test, 0, maxArr, 0, n);
+                }
+            }
+        }
+        System.out.print("Max Sum Array : (");
+        for (int i = maxArr.length - 1; i >= 0; i--) {
+            if (maxArr[i] != 0) {
+                System.out.printf("%d,", maxArr[i]);
+            }
+        }
+        System.out.println(")");
+        System.out.printf("Max Sum (Blute Force) = %d", maxSum);
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -43,6 +75,7 @@ public class subarrays {
             }
             System.err.println();
             System.out.println("Enter 1 : Print all Subarrays");
+            System.out.println("Enter 2 : Print Subarray give Max Sum");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -51,6 +84,9 @@ public class subarrays {
             switch (choise) {
                 case 1:
                     allSubarray(arr);
+                    break;
+                case 2:
+                    maxSumSubarray(arr);
                     break;
                 case 0:
                     System.exit(0);
