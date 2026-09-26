@@ -95,6 +95,23 @@ public class subarrays {
         System.out.println();
     }
 
+    // ! Print Max Sum using Kadane's Algorithm
+    public static void maxSumKadans(int arr[]) {
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            currentSum += arr[i];
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+            }
+            if (currentSum < 0) {
+            currentSum = 0;
+            }
+        }
+        System.out.printf("Max Sum (Kadane's Algorithm) = %d", maxSum);
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -122,6 +139,7 @@ public class subarrays {
             System.out.println("Enter 2 : Print Subarray give Max Sum");
             System.out.println("Enter 3 : Max Sum using Blute Force");
             System.out.println("Enter 4 : Max Sum using Prefix Sum");
+            System.out.println("Enter 5 : Max Sum using Kadane's Algorithm");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -139,6 +157,9 @@ public class subarrays {
                     break;
                 case 4:
                     maxSumPrefix(arr);
+                    break;
+                case 5:
+                    maxSumKadans(arr);
                     break;
                 case 0:
                     System.exit(0);
