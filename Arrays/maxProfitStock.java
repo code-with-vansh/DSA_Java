@@ -29,24 +29,32 @@ public class maxProfitStock {
     // ! Max Profit in Stock Trading Vansh's Approach
     public static void maxProfitVansh(int arr[]) {
         int bp = arr[0], sp, profit;
-        int info[] = new int[3];
-        info[0] = 0; // maxProfit
+        int maxProfit = 0;
         for (int i = 1; i < arr.length; i++) {
             sp = arr[i];
             if (arr[i - 1] <= bp) {
                 bp = arr[i - 1];
-                info[1] = i - 1;
             }
             profit = sp - bp;
-            if (profit > info[0]) {
-                info[0] = profit;
-                info[2] = i;
-            }
+            maxProfit = Math.max(maxProfit, profit);
 
         }
-        System.out.printf("Buy  : Day %d  -> $%d \n", info[1] + 1, arr[info[1]]);
-        System.out.printf("Sell : Day %d  -> $%d \n", info[2] + 1, arr[info[2]]);
-        System.out.printf("Maximum Profit -> $%d \n", info[0]);
+        System.out.printf("Maximum Profit -> $%d \n", maxProfit);
+    }
+
+    // ! Max Profit in Stock Trading Apna college
+    public static void maxProfitShradha(int arr[]) {
+        int bp = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (bp < arr[i]) {
+                int profit = arr[i] - bp;
+                maxProfit = Math.max(maxProfit, profit);
+            } else {
+                bp = arr[i];
+            }
+        }
+        System.out.printf("Maximum Profit -> $%d \n", maxProfit);
     }
 
     public static void main(String[] args) {
@@ -74,6 +82,7 @@ public class maxProfitStock {
             System.err.println();
             System.out.println("Enter 1 : Max Profit Stock Trading (Blute Force)");
             System.out.println("Enter 2 : Max Profit Stock Trading (Vansh's Approach)");
+            System.out.println("Enter 3 : Max Profit Stock Trading (Apna College)");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -85,6 +94,9 @@ public class maxProfitStock {
                     break;
                 case 2:
                     maxProfitVansh(arr);
+                    break;
+                case 3:
+                    maxProfitShradha(arr);
                     break;
                 case 0:
                     System.exit(0);
