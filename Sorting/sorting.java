@@ -29,6 +29,24 @@ public class sorting {
         printArray(arr);
     }
 
+    // ! Selection Sort
+    public static void selectionSort(int arr[]) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minPos = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minPos]) {
+                    minPos = j;
+                }
+            }
+            // swap
+            int temp = arr[i];
+            arr[i] = arr[minPos];
+            arr[minPos] = temp;
+        }
+        System.out.println("Selection Sorted array : ");
+        printArray(arr);
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -50,6 +68,7 @@ public class sorting {
             System.out.print("\nArray : ");
             printArray(arr);
             System.out.println("Enter 1 : Bubble Sort");
+            System.out.println("Enter 2 : Selection Sort");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -58,6 +77,9 @@ public class sorting {
             switch (choise) {
                 case 1:
                     bubbleSort(arr);
+                    break;
+                case 2:
+                    selectionSort(arr);
                     break;
                 case 0:
                     System.exit(0);
