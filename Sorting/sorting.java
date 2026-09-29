@@ -29,6 +29,23 @@ public class sorting {
         printArray(arr);
     }
 
+    // ! Bubble Sort - Descending
+
+    public static void bubbleSortDesc(int arr[]) {
+        int temp;
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println("Bubble Sorted array (Descending) : ");
+        printArray(arr);
+    }
+
     // ! Selection Sort
     public static void selectionSort(int arr[]) {
         for (int i = 0; i < arr.length - 1; i++) {
@@ -87,8 +104,9 @@ public class sorting {
             System.out.print("\nArray : ");
             printArray(arr);
             System.out.println("Enter 1 : Bubble Sort");
-            System.out.println("Enter 2 : Selection Sort");
-            System.out.println("Enter 3 : Insertion Sort");
+            System.out.println("Enter 2 : Bubble Sort Descending");
+            System.out.println("Enter 3 : Selection Sort");
+            System.out.println("Enter 4 : Insertion Sort");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -99,9 +117,12 @@ public class sorting {
                     bubbleSort(arr);
                     break;
                 case 2:
-                    selectionSort(arr);
+                    bubbleSortDesc(arr);
                     break;
                 case 3:
+                    selectionSort(arr);
+                    break;
+                case 4:
                     insertionSort(arr);
                     break;
                 case 0:
