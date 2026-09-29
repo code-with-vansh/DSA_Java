@@ -47,6 +47,25 @@ public class sorting {
         printArray(arr);
     }
 
+    // ! Insertion Sort
+    public static void insertionSort(int arr[]) {
+        for (int i = 1; i < arr.length; i++) {
+            int curr = arr[i];
+            int j = i - 1;
+
+            // Shift larger elements one position to the right
+            while (j >= 0 && arr[j] > curr) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            // Place key at its correct position
+            arr[j + 1] = curr;
+        }
+        System.out.println("Insertion Sorted array : ");
+        printArray(arr);
+    }
+
     public static void main(String[] args) {
         // ! MAIN FUNCTION
 
@@ -69,6 +88,7 @@ public class sorting {
             printArray(arr);
             System.out.println("Enter 1 : Bubble Sort");
             System.out.println("Enter 2 : Selection Sort");
+            System.out.println("Enter 3 : Insertion Sort");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -80,6 +100,9 @@ public class sorting {
                     break;
                 case 2:
                     selectionSort(arr);
+                    break;
+                case 3:
+                    insertionSort(arr);
                     break;
                 case 0:
                     System.exit(0);
