@@ -25,7 +25,7 @@ public class sorting {
                 }
             }
         }
-        System.out.println("Bubble Sorted array : ");
+        System.out.println("Bubble Sorted Array : ");
         printArray(arr);
     }
 
@@ -42,7 +42,7 @@ public class sorting {
                 }
             }
         }
-        System.out.println("Bubble Sorted array (Descending) : ");
+        System.out.println("Bubble Sorted Array (Descending) : ");
         printArray(arr);
     }
 
@@ -60,7 +60,26 @@ public class sorting {
             arr[i] = arr[minPos];
             arr[minPos] = temp;
         }
-        System.out.println("Selection Sorted array : ");
+        System.out.println("Selection Sorted Array : ");
+        printArray(arr);
+    }
+
+    // ! Selection Sort - Descending
+
+    public static void selectionSortDesc(int arr[]) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int maxPos = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] > arr[maxPos]) {
+                    maxPos = j;
+                }
+            }
+            // swap
+            int temp = arr[i];
+            arr[i] = arr[maxPos];
+            arr[maxPos] = temp;
+        }
+        System.out.println("Selection Sorted Array (Descending) : ");
         printArray(arr);
     }
 
@@ -79,7 +98,7 @@ public class sorting {
             // Place key at its correct position
             arr[j + 1] = curr;
         }
-        System.out.println("Insertion Sorted array : ");
+        System.out.println("Insertion Sorted Array : ");
         printArray(arr);
     }
 
@@ -106,7 +125,8 @@ public class sorting {
             System.out.println("Enter 1 : Bubble Sort");
             System.out.println("Enter 2 : Bubble Sort Descending");
             System.out.println("Enter 3 : Selection Sort");
-            System.out.println("Enter 4 : Insertion Sort");
+            System.out.println("Enter 4 : Selection Sort Descending");
+            System.out.println("Enter 5 : Insertion Sort");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -123,6 +143,9 @@ public class sorting {
                     selectionSort(arr);
                     break;
                 case 4:
+                    selectionSortDesc(arr);
+                    break;
+                case 5:
                     insertionSort(arr);
                     break;
                 case 0:
