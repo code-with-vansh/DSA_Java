@@ -25,12 +25,11 @@ public class sorting {
                 }
             }
         }
-        System.out.println("Bubble Sorted Array : ");
+        System.out.print("Bubble Sorted Array : ");
         printArray(arr);
     }
 
     // ! Bubble Sort - Descending
-
     public static void bubbleSortDesc(int arr[]) {
         int temp;
         for (int i = 0; i < arr.length - 1; i++) {
@@ -42,7 +41,7 @@ public class sorting {
                 }
             }
         }
-        System.out.println("Bubble Sorted Array (Descending) : ");
+        System.out.print("Bubble Sorted Array (Descending) : ");
         printArray(arr);
     }
 
@@ -60,12 +59,11 @@ public class sorting {
             arr[i] = arr[minPos];
             arr[minPos] = temp;
         }
-        System.out.println("Selection Sorted Array : ");
+        System.out.print("Selection Sorted Array : ");
         printArray(arr);
     }
 
     // ! Selection Sort - Descending
-
     public static void selectionSortDesc(int arr[]) {
         for (int i = 0; i < arr.length - 1; i++) {
             int maxPos = i;
@@ -79,7 +77,7 @@ public class sorting {
             arr[i] = arr[maxPos];
             arr[maxPos] = temp;
         }
-        System.out.println("Selection Sorted Array (Descending) : ");
+        System.out.print("Selection Sorted Array (Descending) : ");
         printArray(arr);
     }
 
@@ -98,7 +96,24 @@ public class sorting {
             // Place key at its correct position
             arr[j + 1] = curr;
         }
-        System.out.println("Insertion Sorted Array : ");
+        System.out.print("Insertion Sorted Array : ");
+        printArray(arr);
+    }
+
+    // ! Insertion Sort - Descending
+    public static void insertionSortDesc(int arr[]) {
+        for (int i = 1; i < arr.length; i++) {
+            int curr = arr[i];
+            int j = i - 1;
+            // Shift smaller elements one position to the right
+            while (j >= 0 && arr[j] < curr) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            // Place current element at its correct position
+            arr[j + 1] = curr;
+        }
+        System.out.print("Insertion Sorted Array (Descending) : ");
         printArray(arr);
     }
 
@@ -127,6 +142,7 @@ public class sorting {
             System.out.println("Enter 3 : Selection Sort");
             System.out.println("Enter 4 : Selection Sort Descending");
             System.out.println("Enter 5 : Insertion Sort");
+            System.out.println("Enter 6 : Insertion Sort Descending");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -147,6 +163,9 @@ public class sorting {
                     break;
                 case 5:
                     insertionSort(arr);
+                    break;
+                case 6:
+                    insertionSortDesc(arr);
                     break;
                 case 0:
                     System.exit(0);
