@@ -19,6 +19,15 @@ public class sorting2 {
         printArray(arr);
     }
 
+    // ! Inbuild Sort Descending
+    public static void inBuildSortDesc(Integer arr[]) {
+        // * Collections.reverseOrder() function works on objects that's why we are
+        // using Integer Object
+        Arrays.sort(arr, Collections.reverseOrder());
+        System.out.print("Inbuild Sorted Array (Descending) : ");
+        printArray(arr);
+    }
+
     public static void main(String[] args) {
 
         System.out.println();
@@ -39,6 +48,7 @@ public class sorting2 {
             System.out.print("\nArray : ");
             printArray(arr);
             System.out.println("Enter 1 : Inbuild Sort");
+            System.out.println("Enter 2 : Inbuild Sort Descending");
             System.out.println("Enter 0 : EXIT");
             System.out.print("Enter your Choise : ");
             int choise = sc.nextInt();
@@ -47,6 +57,9 @@ public class sorting2 {
             switch (choise) {
                 case 1:
                     inBuildSort(arr);
+                    break;
+                case 2:
+                    inBuildSortDesc(arr);
                     break;
                 case 0:
                     System.exit(0);
