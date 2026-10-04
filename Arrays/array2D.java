@@ -32,6 +32,8 @@ public class array2D {
         int left = 0;
         int right = cols - 1;
 
+        System.out.println("Spiral Unfold : ");
+
         while (top <= bottom && left <= right) {
 
             // * Traverse top row: left -> right
